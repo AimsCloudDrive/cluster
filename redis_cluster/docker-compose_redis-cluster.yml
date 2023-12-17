@@ -1,0 +1,107 @@
+version: "3"
+services:
+  redis_master:
+    # 镜像
+    image: redis:latest
+    # 容器名
+    container_name: redis_master
+    # 映射目录
+    volumes:
+      - ./conf.d/master:/etc/redis/conf
+    # 端口映射
+    ports:
+      - "6379:6379"
+    # 重启策略
+    restart: always
+    # 使用root权限
+    privileged: true
+    # 环境变量
+    # environment:
+    # 命令
+    command: redis_server /etc/redis/conf/redis.conf
+    # 使用桥接网络
+    network_mode: "bridge"
+  redis_slave01:
+    # 镜像
+    image: redis:latest
+    # 容器名
+    container_name: redis_salve01
+    # 映射目录
+    volumes:
+      - ./conf.d/slave01:/etc/redis/conf
+    # 端口映射
+    ports:
+      - "6380:6379"
+    # 重启策略
+    restart: always
+    # 使用root权限
+    privileged: true
+    # 环境变量
+    # environment:
+    # 命令
+    command: redis_server /etc/redis/conf/redis.conf
+    # 使用桥接网络
+    network_mode: "bridge"
+  redis_slave02:
+    # 镜像
+    image: redis:latest
+    # 容器名
+    container_name: redis_salve02
+    # 映射目录
+    volumes:
+      - ./conf.d/slave02:/etc/redis/conf
+    # 端口映射
+    ports:
+      - "6381:6379"
+    # 重启策略
+    restart: always
+    # 使用root权限
+    privileged: true
+    # 环境变量
+    # environment:
+    # 命令
+    command: redis_server /etc/redis/conf/redis.conf
+    # 使用桥接网络
+    network_mode: "bridge"
+  redis_slave03:
+    # 镜像
+    image: redis:latest
+    # 容器名
+    container_name: redis_salve03
+    # 映射目录
+    volumes:
+      - ./conf.d/slave03:/etc/redis/conf
+    # 端口映射
+    ports:
+      - "6382:6379"
+    # 重启策略
+    restart: always
+    # 使用root权限
+    privileged: true
+    # 环境变量
+    # environment:
+    # 命令
+    command: redis_server /etc/redis/conf/redis.conf
+    # 使用桥接网络
+    network_mode: "bridge"
+  redis_sentienl:
+    # 镜像
+    image: redis:latest
+    # 容器名
+    container_name: redis_sentienl
+    # 映射目录
+    volumes:
+      - ./conf.d/sentienl:/etc/redis/conf
+    # 端口映射
+    ports:
+      - "26379:26379"
+    # 重启策略
+    restart: always
+    # 使用root权限
+    privileged: true
+    # 环境变量
+    # environment:
+    # 命令
+    command: redis_sentienl /etc/redis/conf/sentienl.conf
+    # 使用桥接网络
+    network_mode: "bridge"

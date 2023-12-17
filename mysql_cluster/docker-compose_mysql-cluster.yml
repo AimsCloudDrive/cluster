@@ -1,0 +1,73 @@
+version: '3'
+services:
+  mysql_master:
+    image: mysql:latest
+    container_name: mysql_master
+    volumes:
+      - ./logs/master:/var/log/mysql
+    ports:
+      -"3306:3306"
+    restart: always
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=business
+      - MYSQL_USER=slave
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - LANG=en_US.UTF-8
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --server_id=1
+  mysql_slave01:
+    image: mysql:latest
+    container_name: mysql_slave01
+    volumes:
+      - ./logs/slave01:/var/log/mysql
+      - ./ms:/etc/ms
+    ports:
+      -"3307:3306"
+    restart: always
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=business
+      - MYSQL_USER=slave
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - LANG=en_US.UTF-8
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --server_id=2
+  mysql_slave02:
+    image: mysql:latest
+    container_name: mysql_slave02
+    volumes:
+      - ./logs/slave02:/var/log/mysql
+      - ./ms:/etc/ms
+    ports:
+      -"3308:3306"
+    restart: always
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=business
+      - MYSQL_USER=slave
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - LANG=en_US.UTF-8
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --server_id=3
+  mysql_slave03:
+    image: mysql:latest
+    container_name: mysql_slave03
+    volumes:
+      - ./logs/slave03:/var/log/mysql
+      - ./ms:/etc/ms
+    ports:
+      -"3309:3306"
+    restart: always
+    privileged: true
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=business
+      - MYSQL_USER=slave
+      - MYSQL_PASSWORD=123456
+      - TZ=Asia/Shanghai
+      - LANG=en_US.UTF-8
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci --server_id=4
