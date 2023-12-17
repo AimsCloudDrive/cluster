@@ -18,7 +18,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: redis_server /etc/redis/conf/redis.conf
+    command: redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_slave01:
@@ -39,7 +39,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: redis_server /etc/redis/conf/redis.conf
+    command: redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_slave02:
@@ -60,7 +60,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: redis_server /etc/redis/conf/redis.conf
+    command: redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_slave03:
@@ -81,7 +81,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: redis_server /etc/redis/conf/redis.conf
+    command: redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_sentienl:
@@ -102,6 +102,6 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: redis_sentienl /etc/redis/conf/sentienl.conf
+    command: redis-sentienl /etc/redis/conf/sentienl.conf
     # 使用桥接网络
     network_mode: "bridge"
