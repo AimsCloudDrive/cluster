@@ -7,7 +7,7 @@ services:
     container_name: redis_master
     # 映射目录
     volumes:
-      - ./conf.d/master:/etc/redis/conf
+      - ./conf.d/master/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
       - "6380:6379"
@@ -28,7 +28,7 @@ services:
     container_name: redis_slave01
     # 映射目录
     volumes:
-      - ./conf.d/slave01:/etc/redis/conf
+      - ./conf.d/slave01/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
       - "6381:6379"
@@ -39,7 +39,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: /redis/src/redis-server
+    command: /redis/src/redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_slave02:
@@ -49,7 +49,7 @@ services:
     container_name: redis_slave02
     # 映射目录
     volumes:
-      - ./conf.d/slave02:/etc/redis/conf
+      - ./conf.d/slave02/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
       - "6382:6379"
@@ -60,7 +60,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: /redis/src/redis-server
+    command: /redis/src/redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis_slave03:
@@ -70,7 +70,7 @@ services:
     container_name: redis_slave03
     # 映射目录
     volumes:
-      - ./conf.d/slave03:/etc/redis/conf
+      - ./conf.d/slave03/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
       - "6383:6379"
@@ -81,7 +81,7 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: /redis/src/redis-server
+    command: /redis/src/redis-server /etc/redis/conf/redis.conf
     # 使用桥接网络
     network_mode: "bridge"
   redis-sentinel:
@@ -91,7 +91,7 @@ services:
     container_name: redis_sentinel
     # 映射目录
     volumes:
-      - ./conf.d/sentinel:/etc/redis/conf
+      - ./conf.d/sentinel/sentinel.conf:/etc/redis/conf/sentinel.conf
     # 端口映射
     ports:
       - "26379:26379"
@@ -102,6 +102,6 @@ services:
     # 环境变量
     # environment:
     # 命令
-    command: /redis/src/redis-sentinel
+    command: /redis/src/redis-sentinel /etc/redis/conf/sentinel.conf
     # 使用桥接网络
     network_mode: "bridge"
