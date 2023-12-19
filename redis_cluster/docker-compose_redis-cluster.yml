@@ -2,7 +2,7 @@ version: "3"
 services:
   redis_master:
     # 镜像
-    image: redis:latest
+    image: redisv:latest
     # 容器名
     container_name: redis_master
     # 映射目录
@@ -23,7 +23,7 @@ services:
     network_mode: "bridge"
   redis_slave01:
     # 镜像
-    image: redis:latest
+    image: redisv:latest
     # 容器名
     container_name: redis_slave01
     # 映射目录
@@ -44,7 +44,7 @@ services:
     network_mode: "bridge"
   redis_slave02:
     # 镜像
-    image: redis:latest
+    image: redisv:latest
     # 容器名
     container_name: redis_slave02
     # 映射目录
@@ -65,7 +65,7 @@ services:
     network_mode: "bridge"
   redis_slave03:
     # 镜像
-    image: redis:latest
+    image: redisv:latest
     # 容器名
     container_name: redis_slave03
     # 映射目录
@@ -86,7 +86,7 @@ services:
     network_mode: "bridge"
   redis_sentienl:
     # 镜像
-    image: redis:latest
+    image: redisv:latest
     # 容器名
     container_name: redis_sentienl
     # 映射目录
