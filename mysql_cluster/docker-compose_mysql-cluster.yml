@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   mysql_master:
     image: mysql:latest
@@ -6,7 +6,7 @@ services:
     volumes:
       - ./logs/master:/var/log/mysql
     ports:
-      -"3306:3306"
+      - "3306:3306"
     restart: always
     privileged: true
     environment:
@@ -24,7 +24,7 @@ services:
       - ./logs/slave01:/var/log/mysql
       - ./ms:/etc/ms
     ports:
-      -"3307:3306"
+      - "3307:3306"
     restart: always
     privileged: true
     environment:
@@ -42,7 +42,7 @@ services:
       - ./logs/slave02:/var/log/mysql
       - ./ms:/etc/ms
     ports:
-      -"3308:3306"
+      - "3308:3306"
     restart: always
     privileged: true
     environment:
@@ -60,7 +60,7 @@ services:
       - ./logs/slave03:/var/log/mysql
       - ./ms:/etc/ms
     ports:
-      -"3309:3306"
+      - "3309:3306"
     restart: always
     privileged: true
     environment:
