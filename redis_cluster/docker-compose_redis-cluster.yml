@@ -10,7 +10,7 @@ services:
       - ./conf.d/master/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
-      - "6380:6379"
+      - "6379:6379"
     # 重启策略
     restart: always
     # 使用root权限
@@ -31,7 +31,7 @@ services:
       - ./conf.d/slave01/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
-      - "6381:6379"
+      - "6380:6379"
     # 重启策略
     restart: always
     # 使用root权限
@@ -52,7 +52,7 @@ services:
       - ./conf.d/slave02/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
-      - "6382:6379"
+      - "6381:6379"
     # 重启策略
     restart: always
     # 使用root权限
@@ -73,7 +73,7 @@ services:
       - ./conf.d/slave03/redis.conf:/etc/redis/conf/redis.conf
     # 端口映射
     ports:
-      - "6383:6379"
+      - "6382:6379"
     # 重启策略
     restart: always
     # 使用root权限

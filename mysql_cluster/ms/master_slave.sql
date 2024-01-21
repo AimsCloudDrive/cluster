@@ -5,7 +5,7 @@ stop slave;
 reset slave;
 
 change master TO 
-master_host='',
+master_host='any.aims.never.nevermonarch.cn',
 master_port=3306,
 master_user='slave',
 master_password='123456',
@@ -15,4 +15,4 @@ get_master_public_key=1;
 
 start slave;
 
-show slave status \G;
+show slave status;
